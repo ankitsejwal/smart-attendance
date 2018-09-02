@@ -9,6 +9,7 @@ def read_members(app):
     members = json.load(file)
     return members
 
+
 def connection():
     # use creds to create a client to interact with the Google Drive API
     scope   = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']

@@ -1,5 +1,6 @@
 from flask import Flask, request, json, jsonify
 import attendance
+import datetime
 
 app = Flask(__name__)
 
@@ -12,18 +13,26 @@ def add():
     
     active_members = members["active_members"]
 
-    row = []
+    # prepare row for injecting into spreadsheet
+    row         = []
+    term        = members["term"]
+    location    = members["location"]
+    today       = datetime.date.today().strftime('%d/%m/%Y')
+
+
     for member in active_members:
         if member["id"] == data["id"]:
-            for k,v in member.items():
-                # watch for normal values
-                if type(v) == str or type(v) == int:
-                    row.append(v)
-                else:
-                    # if type == list
+            for k, v in member.items():
+                # break parents list to string
+                if type(v) == list:
                     parents = ", ".join(v)
-                    row.append(parents) 
-            print(row)
+                    row.append(parents)
+                else:
+                    row.append(v)
+            row.append(term)                        # append term
+            row.append(today)                       # append date
+            row.append(location)                    # append location
+    
             attendance.mark_present(row, 2)
             return jsonify(member)
     
