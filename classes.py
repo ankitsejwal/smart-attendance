@@ -6,11 +6,9 @@ class Child:
         self.first_name = first_name
         self.last_name  = last_name
         self.dob        = dob
-        
-        # hold both the parents
+        # hold parents
         self.parents    = []
-
-        # automatic add id
+        # assign id
         self.id = Child.counter
         Child.counter += 1
 
@@ -19,10 +17,11 @@ class Child:
         print(f'id: {self.id}')
         print(f'child name: {self.first_name} {self.last_name}')
         print(f'dob: {self.dob}')
-
+        # print parent name
         for parent in self.parents:
             print(f'Parent name: {parent.first_name} {parent.last_name}')
-        print(f'parent object: {self.parents}\n')
+        
+        print(f'\nparent object: {self.parents}\n')
 
 
     def add_parent(self, parent):
@@ -38,7 +37,7 @@ class Parent:
         self.last_name  = last_name
         self.phone_no   = phone_no
         self.childrens = []
-        # assign parent id
+        # assign id
         self.id         = Parent.counter
         Parent.counter += 1
 
@@ -47,9 +46,10 @@ class Parent:
         print(f'id: {self.id}')
         print(f'parent name: {self.first_name} {self.last_name}')
         print(f'phone_no: {self.phone_no}')
-        print('childrens: ', end="")
+        # print children name
         for child in self.childrens:
-            print(child.first_name, end=", ")
+            print(f'children name: {child.first_name}')
+
         print(f'\nchild objects: {self.childrens}\n')
 
 
