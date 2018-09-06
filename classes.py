@@ -36,9 +36,9 @@ class Parent:
         self.first_name = first_name
         self.last_name  = last_name
         self.phone_no   = phone_no
-        self.childrens = []
+        self.childrens  = []
         # assign id
-        self.id         = Parent.counter
+        self.id = Parent.counter
         Parent.counter += 1
 
 
@@ -56,6 +56,24 @@ class Parent:
     def add_child(self, child):
         self.childrens.append(child)
         child.parents.append(self)
+        
+
+class Volunteer:
+
+    counter = 1
+
+    def __init__(self, first_name, last_name, phone_no):
+        self.first_name = first_name
+        self.last_name  = last_name
+        self.phone_no   = phone_no
+        # assigning id
+        self.id = Volunteer.counter
+        Volunteer.counter += 1
+
+    def print_info(self):
+        print(f'id: {self.id}')
+        print(f'volunteer name: {self.first_name} {self.last_name}')
+        print(f'phone_no: {self.phone_no}')
         
 
 if __name__ == "__main__":
@@ -80,4 +98,6 @@ if __name__ == "__main__":
     tomm.print_info()
     bern.print_info()
     
-
+    # create a volunteer
+    ankit = Volunteer("ankit", "sejwal", "0452405206")
+    ankit.print_info()
