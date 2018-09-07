@@ -27,6 +27,7 @@ if __name__ == "__main__":
     bern.print_info()
     
     # create a volunteer
+    trevor = Volunteer("trevor", "warren", "04444444444")
     ankit = Volunteer("ankit", "sejwal", "0400000000")
     ankit.print_info()
 
@@ -35,5 +36,8 @@ if __name__ == "__main__":
     term3_2018.add_member(bern)
     term3_2018.add_member(juli)
     term3_2018.add_member(matt)
+    tomm.add_to_term(term3_2018)
+    trevor.add_to_term(term3_2018)
+    
 
     term3_2018.print_info()

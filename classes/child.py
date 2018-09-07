@@ -1,11 +1,12 @@
-class Child:
+from .person import Person
+
+class Child(Person):
 
     counter = 100
 
     def __init__(self, first_name, last_name, dob):
-        self.first_name = first_name
-        self.last_name  = last_name
-        self.dob        = dob
+        super().__init__(first_name, last_name)
+        self.dob = dob
         # hold parents
         self.parents    = []
         # assign id
@@ -16,11 +17,6 @@ class Child:
     def add_parent(self, parent):
         self.parents.append(parent)
         parent.childrens.append(self)
-
-
-    def add_to_term(self, term):
-        ''' add child to a term '''
-        term.members.append(self)
 
 
     def print_info(self):

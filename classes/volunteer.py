@@ -1,10 +1,11 @@
-class Volunteer:
+from .person import Person
+
+class Volunteer(Person):
 
     counter = 1
 
     def __init__(self, first_name, last_name, phone_no):
-        self.first_name = first_name
-        self.last_name  = last_name
+        super().__init__(first_name, last_name)
         self.phone_no   = phone_no
         # assigning id
         self.id = Volunteer.counter
