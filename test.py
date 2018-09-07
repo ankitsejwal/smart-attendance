@@ -2,6 +2,10 @@ from classes import *
 
 if __name__ == "__main__":
 
+
+    # create a term
+    term3_2018 = Term("2018.3", "00/00/0000", "00/00/0000")
+
     # create children
     juli = Child("juli", "", "00/00/00")
     matt = Child("matt", "", "00/00/00")
@@ -23,5 +27,13 @@ if __name__ == "__main__":
     bern.print_info()
     
     # create a volunteer
-    ankit = Volunteer("ankit", "sejwal", "0452405206")
+    ankit = Volunteer("ankit", "sejwal", "0400000000")
     ankit.print_info()
+
+    # add members to a term
+    term3_2018.add_member(ankit)
+    term3_2018.add_member(bern)
+    term3_2018.add_member(juli)
+    term3_2018.add_member(matt)
+
+    term3_2018.print_info()
